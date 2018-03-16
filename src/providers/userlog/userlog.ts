@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http,Response,RequestOptions, Headers } from '@angular/http';
 import 'rxjs/rx';
 import { User_Class } from "./user_class";
+import { User_Class2 } from "./use_class2";
 
 
 /*
@@ -22,7 +23,10 @@ export class UserlogProvider {
   public url_Byid:string="http://localhost:3000/alldata/";
   public url_email:string="http://localhost:3000/forget/";
   public url_chngpass:string="http://localhost:3000/change/";
+
+  
   id:string='';
+  usr:User_Class[]=[];
   Login(user:User_Class) {
   
     let body = JSON.stringify(user);
@@ -39,6 +43,17 @@ export class UserlogProvider {
     let ro = new RequestOptions({ headers: h });
    return this.http.post(this.url_signup, body, ro).map((res) => res.json());
   }
+  updateUser(user){
+    let body = JSON.stringify(user);
+    let h = new Headers({ 'Content-Type': 'application/json' });
+    let ro = new RequestOptions({ headers: h });
+   return this.http.put(this.url_Byid+user.pk_usr_email_id, body, ro).map((res) => res.json());
+  }
+  getUserid(user)
+  {
+    return this.http.get(this.url_Byid+user).map((res) => res.json());
+  }
+  
   getUser(user)
   {
     return this.http.get(this.url_Byid+user).map((res) => res.json());
@@ -51,12 +66,12 @@ export class UserlogProvider {
    return this.http.post(this.url_email, body, ro).map((res) => res.json());
   
   }
-  changepass(user)
+  changepass(user:User_Class2)
   {
     let body = JSON.stringify(user);
     let h = new Headers({ 'Content-Type': 'application/json' });
     let ro = new RequestOptions({ headers: h });
-    return this.http.put(this.url_chngpass+this.id, body, ro).map((res) => res.json());
+    return this.http.put(this.url_chngpass, body, ro).map((res) => res.json());
   }
 
 }

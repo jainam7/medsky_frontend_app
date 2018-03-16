@@ -102,12 +102,9 @@ import { BlogdescriptionPage } from "../pages/blogdescription/blogdescription";
     SearchproProvider,
     UserlogProvider,
     BlogdbProvider,
-<<<<<<< HEAD
-    SocialSharing
-=======
+    SocialSharing,
     Calendar,
     ReminderproviderProvider
->>>>>>> a9abc2ea8ce07410f7bedc0b5da33b9de5457ac7
   ]
 })
 export class AppModule {}

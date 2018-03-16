@@ -1,26 +1,26 @@
 import { Storage } from "@ionic/storage";
 import { Component } from '@angular/core';
-<<<<<<< HEAD
-import { ToastController, NavController } from 'ionic-angular';
-=======
+
+//import { ToastController, NavController } from 'ionic-angular';
+
 import { NavController,ToastController } from 'ionic-angular';
->>>>>>> a9abc2ea8ce07410f7bedc0b5da33b9de5457ac7
+
 import { BlogdbProvider } from "../../providers/blogdb/blogdb";
 import { SocialSharing } from "@ionic-native/social-sharing";
 import { blog } from "./blog";
-<<<<<<< HEAD
+
 import { like } from "./like";
 
 
-=======
+
 import { BlogdescriptionPage} from "../blogdescription/blogdescription";
->>>>>>> a9abc2ea8ce07410f7bedc0b5da33b9de5457ac7
+
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
 })
 export class AboutPage {
-<<<<<<< HEAD
+
   bg: blog[];
   lk: like;
   l1: like[] = [];
@@ -31,17 +31,7 @@ export class AboutPage {
   constructor(public storage: Storage, public navCtrl: NavController, public toast: ToastController, public bgdata: BlogdbProvider, public socialsharing: SocialSharing) {
 
   }
-  ionViewDidLoad() {
-    this.storage.get('id').then((val) => {
-      this.email = val;
-=======
-bg:blog[];
-like:number=0;
-comment:number=0;
-  constructor(public navCtrl: NavController,public bgdata:BlogdbProvider,public toast:ToastController) {
-
-  }
-  doRefresh(refresher){
+   doRefresh(refresher){
     
      
     
@@ -54,12 +44,15 @@ comment:number=0;
      refresher.complete();
  
    }
-  ionViewDidLoad(){
+  ionViewDidLoad() {
+    this.storage.get('id').then((val) => {
+      this.email = val;
+
     let t1=this.toast.create({
       message:"Pull Down to Refresh Content",
       duration:5000,
       position:"bottom"
->>>>>>> a9abc2ea8ce07410f7bedc0b5da33b9de5457ac7
+
     });
     this.bgdata.getAllBlogs().subscribe(
       (data: blog[]) => {
@@ -77,6 +70,7 @@ comment:number=0;
 
               //alert(data[0]["SUM(likes)"]);
               this.bg[i].fk_usr_id = data[0].fk_usr_id;
+              
               //this.like=this.bg[i].likes;
             }
           );
@@ -84,6 +78,7 @@ comment:number=0;
       }
     );
     t1.present();
+    });
   }
   tapev(e) {
     this.bgdata.getLikeEmail(e.fk_blog_id, this.email).subscribe(
@@ -118,7 +113,7 @@ comment:number=0;
   menu(item) {
     this.socialsharing.share("general message", null/*subject*/, null/*file*/, "url");
     let t1 = this.toast.create({
-      message: this.email + ' Shared thayu',
+      message: ' Shared !!!',
       duration: 1500,
       position: 'bottom'
 

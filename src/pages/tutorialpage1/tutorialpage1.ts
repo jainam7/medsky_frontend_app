@@ -23,7 +23,7 @@ export interface Slide {
   templateUrl: 'tutorialpage1.html',
 })
 export class Tutorialpage1Page {
-
+  showSkip:number=1;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

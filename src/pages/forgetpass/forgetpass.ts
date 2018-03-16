@@ -42,8 +42,8 @@ export class ForgetpassPage {
         if(data.length===1)
         {
           
-          var message="Hello "+data[0].usr_name+". You have requested to reset the password. your password is '"+data[0].usr_pass+"'. Password is one of the confidential thing, Don't share it with anyone.";
-            this._db.sendemail(new email_class(message,this.email_id,"Resetting the password of Expense Tracker.")).subscribe(
+          var message="Respected Sir/Medam "+data[0].usr_name+". You have requested to reset the password. your password is '"+data[0].usr_pass+"'. Password is one of the confidential thing, Don't share it with anyone.";
+            this._db.sendemail(new email_class(message,this.email_id,"Scala from Medsky.com sending your Password")).subscribe(
               (data1:any)=>{
                 console.log("mail sent");
                 //alert("The Password has been sent to "+this.email_id);
@@ -54,7 +54,12 @@ export class ForgetpassPage {
         }
         else
         {
-          this.msg="You have entered incorrect email id. Please enter the email id you used to login with.";
+          let t1=this.toast.create({
+            message:"Enter valid Email Address.",
+            duration:3000,
+            position:"bottom"
+          });    
+         t1.present();
         }
       },
       function(err){},

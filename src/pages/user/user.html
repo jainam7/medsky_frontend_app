@@ -6,56 +6,57 @@
 -->
 <ion-header>
 
-    <ion-navbar color="myapp1">
-    <ion-title>User</ion-title>
+  <ion-navbar color="myapp1">
+     <ion-buttons end>
+          <button ion-button color="white" clear right on-tap="logoutuser()">Log Out</button>
+        </ion-buttons>
+     
+  <ion-title>User</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-list>
+  <ion-list>
+    <ion-item>
+        <ion-label floating>Email Id</ion-label>
+        <ion-input type="email" [(ngModel)]="user" name="email" readonly></ion-input>
+    </ion-item>
+  <!--<ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="pass" name="pass" readonly></ion-input>
+    </ion-item>-->
+   <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Mobile No</ion-label>
+        <ion-input type="Number" [(ngModel)]="mno" name="mno" ></ion-input>
+    </ion-item>
+    <br/>
+    <ion-list radio-group [(ngModel)]="gen">
       <ion-item>
-          <ion-label floating>Email Id</ion-label>
-          <ion-input type="email" [(ngModel)]="user" name="email" readonly></ion-input>
-      </ion-item>
-    <!--<ion-item>
-          <ion-label floating>Password</ion-label>
-          <ion-input type="password" [(ngModel)]="pass" name="pass" readonly></ion-input>
-      </ion-item>-->
-     <ion-item>
-          <ion-label floating>Name</ion-label>
-          <ion-input type="text" [(ngModel)]="name" name="name"readonly></ion-input>
+        <ion-label>Male</ion-label>
+        <ion-radio value="Male"></ion-radio>
       </ion-item>
       <ion-item>
-          <ion-label floating>Mobile No</ion-label>
-          <ion-input type="Number" [(ngModel)]="mno" name="mno" readonly></ion-input>
+        <ion-label>Female</ion-label>
+        <ion-radio value="Female"></ion-radio>
       </ion-item>
-      <br/>
-      <ion-list radio-group [(ngModel)]="Gender">
-        <ion-item>
-          <ion-label>Male</ion-label>
-          <ion-radio value="Male" checked></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>Female</ion-label>
-          <ion-radio value="female"></ion-radio>
-        </ion-item>
-        </ion-list>    
-        
-    
-         
-        <div padding>
-          <button ion-button round (click)="onChangePassClick()" color="myapp1" block>Change Password</button>
-          <button ion-button round (click)="onEditClick()" color="myapp1" block>Edit Profile</button>
-        </div>
-        
-    
-   
-   
-        <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-          {{ item }}
-        </button>  
-      </ion-list>
+      </ion-list>    
+      
+  
+       
+      <div padding>
+        <button ion-button round (click)="onChangePassClick()" color="myapp1" block>Change Password</button>
+        <button ion-button round (click)="onEditClick()" color="myapp1" block>Edit Profile</button>
+      </div>
+      
+      <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+        {{ item }}
+      </button>  
+    </ion-list>
 
 </ion-content>

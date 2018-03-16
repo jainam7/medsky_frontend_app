@@ -1,10 +1,9 @@
-
 <div id="custom-overlay" [style.display]="splash ? 'flex':'none'">
   <div class="flb">
-   <!-- <div class="Aligner-item Aligner-item--top">-->
-      <!--<img src="assets/imgs/a.png">-->
-      <h1 class="logo1">MEDSKY</h1>
-      
+    <!-- <div class="Aligner-item Aligner-item--top">-->
+    <!--<img src="assets/imgs/a.png">-->
+    <h1 class="logo1">MEDSKY</h1>
+
     <!--</div>-->
   </div>
 </div>
@@ -17,8 +16,8 @@
 
 <ion-content padding>
   <ion-card (click)="onViewPrescription()">
-    <ion-card-header >
-      <ion-icon name="book" class="ionicons1"></ion-icon> Read Prescription
+    <ion-card-header>
+      <ion-icon name="book" class="ionicons1"></ion-icon>  &nbsp; Read Prescription
     </ion-card-header>
     <ion-card-content>
       Here you can view your all prescription and also doctors visited.
@@ -33,26 +32,30 @@
     </ion-card-content>
   </ion-card>
 -->
-  <ion-card  (click)="onViewReminders()">
+  <ion-card (click)="onViewReminders()">
     <ion-card-header>
-      <ion-icon name="alarm"  class="ionicons1"></ion-icon> Add to Reminder
+      <ion-icon name="alarm" class="ionicons1"></ion-icon> Add to Reminder
     </ion-card-header>
+    
     <ion-card-content>
       Here you can add reminder for your medicines.
     </ion-card-content>
+  
   </ion-card>
   <ion-card (click)="onSearch()">
+
     <ion-card-header>
-      <ion-icon name="search"  class="ionicons1"></ion-icon>Search Doctor or Medicines
+      <ion-icon name="search" class="ionicons1 "></ion-icon>Search
     </ion-card-header>
-    <ion-card-content>
+  <ion-card-content>
       Here you can search Medicines and Doctors both.
     </ion-card-content>
   </ion-card>
   <ion-card (click)="onChat()">
     <ion-card-header>
-      <ion-icon name="search"  class="ionicons1"></ion-icon>Chat With Our Bot
+      <ion-icon name="search" class="ionicons1"></ion-icon>Chat With Our Bot
     </ion-card-header>
+    
     <ion-card-content>
       Here you can chat with our bot.Get some answers for deases as per symtones.
     </ion-card-content>

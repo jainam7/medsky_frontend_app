@@ -5,6 +5,7 @@ import { UserlogProvider } from "../../providers/userlog/userlog";
 import { User_Class } from "../../providers/userlog/user_class";
 import { TabsPage } from "../../pages/tabs/tabs";
 import { Storage } from "@ionic/storage";
+import { User_Class2 } from "../../providers/userlog/use_class2";
 /**
  * Generated class for the ChangepassPage page.
  *
@@ -28,6 +29,9 @@ export class ChangepassPage {
   u:string='';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public storage:Storage,public _db:UserlogProvider,public toast:ToastController) {
+    this.storage.get('id').then((val)=>{
+      this.email_id=val;  
+    }); 
   }
 
   ionViewDidLoad() {
@@ -36,42 +40,55 @@ export class ChangepassPage {
   
   onChangePassClick()
   {
-    let t3=this.toast.create({
-      message:"Password Successfully Changed",
-      duration:3000,
-      position:"bottom"
+   
   
-    });
-    alert("ehh");
     this.storage.get('pass').then((val)=>{
       this.pass=val;  
-     // alert(this.pass);
-    this._db.changepass(new User_Class(0,this.u,'','',this.pass,'','',0,'','')).subscribe(
-      (data:User_Class[])=>{
-        this.user=data;
-
-      //this.pass=this.user[0].usr_pass;
-       // this.opass=this.user[0].usr_pass;
-        //alert(this.pass);
-        if(this.pass==this.opass)
-        {
-          if(this.npass==this.cpass)
-          {
-            t3.present();
-          }
-        
-        }
-          
-       },
-       function(error){
-         console.log(error);
-       },
-       function(){
-         //l1.dismissAll();
-       }
-     );
     }); 
-
+    if(this.npass==this.cpass)
+    {
+      if(this.npass==this.cpass)
+      {
+       this._db.changepass(new User_Class2(this.npass,this.email_id)).subscribe(
+         (data:User_Class[])=>{
+           this.user=data;
+           let t3=this.toast.create({
+            message:"Password Successfully Changed",
+            duration:3000,
+            position:"bottom"
+        
+          });
+          t3.present();
+      } ,
+      function(error){
+        console.log(error);
+      },
+      function(){
+        //l1.dismissAll();
+      }
+    );
+    }
+    else
+    {
+     let t3=this.toast.create({
+       message:"New Password doesnot match with confirm password.Both Should be same.",
+       duration:3000,
+       position:"bottom"
+   
+     });
+      t3.present();
+    }
+   }
+   else
+   {
+     let t3=this.toast.create({
+       message:"Old Password do not march.Please enter correct password.",
+       duration:3000,
+       position:"bottom"
+   
+     });
+     t3.present();
+   }
   }
 
 }
