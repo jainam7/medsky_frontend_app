@@ -4,6 +4,8 @@ import { UserlogProvider } from "../../providers/userlog/userlog";
 import { User_Class } from "../../providers/userlog/user_class";
 import { TabsPage } from "../tabs/tabs";
 import { email_class } from "../../providers/userlog/email";
+import { VerificationpagePage } from "../verificationpage/verificationpage";
+
 /**
  * Generated class for the SignuppagePage page.
  *
@@ -22,7 +24,7 @@ export class SignuppagePage {
   password:string='';
   mno:string='';
   userObject:User_Class;
-  
+  token:string;
   constructor(public toast:ToastController,public navCtrl: NavController, public data:UserlogProvider) {
   }
 
@@ -32,7 +34,7 @@ export class SignuppagePage {
   onSignupClick()
   {
    let t1=this.toast.create({
-      message:"Signup Successfully.Kindly Go to Sign In Page and Sign In.",
+      message:"OTP sent to your mail Id.Verify it.",
       duration:3000,
       position:"bottom"
     });
@@ -65,12 +67,14 @@ export class SignuppagePage {
      t4.present();
     }
     else{
-
-      var message="Respected Sir/Medam ,Congratultaions!!!Greeting from Medsky.You had successfully signed up at Medsky App.Use it wisely.If any feedback do us inform on medskyy@gmail.com.";
+      var val = Math.floor(1000 + Math.random() * 9000);
+      this.token=val.toString();
+      console.log(this.token);
+      var message="Respected Sir/Medam ,Congratultaions!!!Greeting from Medsky.You had successfully signed up at Medsky App.Use it wisely.Your OTP is  "+val+"  .If any feedback do us inform on medskyy@gmail.com.";
       this.data.sendemail(new email_class(message,this.email_id,"Scala from Medsky.com")).subscribe(
         (data1:any)=>{
           console.log("mail sent");
-          this.data.addUser(new User_Class(0,this.email_id,'',this.mno,this.password,'','',0,'',''))
+          this.data.addUser(new User_Class(0,this.email_id,'',this.mno,this.password,'','',0,this.token,''))
    .subscribe(
 
      (data:User_Class[])=>{
@@ -83,7 +87,13 @@ export class SignuppagePage {
     }
    );
           //alert("The Password has been sent to "+this.email_id);
+       
           t1.present();
+          this.navCtrl.push(VerificationpagePage,{
+              param1:this.email_id,
+              param2:this.password,
+              param3:this.token
+          });
           //this.navCtrl.push(TabsPage);
         },function(error){
           let t1=this.toast.create({

@@ -23,7 +23,7 @@ export class UserlogProvider {
   public url_Byid:string="http://localhost:3000/alldata/";
   public url_email:string="http://localhost:3000/forget/";
   public url_chngpass:string="http://localhost:3000/change/";
-
+  public url_verify:string="http://localhost:3000/verify/";
   
   id:string='';
   usr:User_Class[]=[];
@@ -72,6 +72,12 @@ export class UserlogProvider {
     let h = new Headers({ 'Content-Type': 'application/json' });
     let ro = new RequestOptions({ headers: h });
     return this.http.put(this.url_chngpass, body, ro).map((res) => res.json());
+  }
+  verifyusr(uid)
+  {
+    let h = new Headers({ 'Content-Type': 'application/json' });
+    let ro = new RequestOptions({ headers: h });
+    return this.http.put(this.url_verify+uid,null,ro).map((res) => res.json());
   }
 
 }

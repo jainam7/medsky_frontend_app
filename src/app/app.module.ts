@@ -14,6 +14,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { Viewprescription1Page } from '../pages/viewprescription1/viewprescription1';
 import { Searchdocandmed1Page } from "../pages/searchdocandmed1/searchdocandmed1";
 import { Tutorialpage1Page } from "../pages/tutorialpage1/tutorialpage1";
+import { VerificationpagePage } from "../pages/verificationpage/verificationpage";
 //import { AuthenticationpagePage } from "../pages/authenticationpage/authenticationpage";
 import { SigninpagePage } from "../pages/signinpage/signinpage";
 import { SignuppagePage } from "../pages/signuppage/signuppage";
@@ -59,7 +60,8 @@ import { BlogdescriptionPage } from "../pages/blogdescription/blogdescription";
     ChatwithbotPage,
     AddremiderpagePage,
     ViewreminderpagePage,
-    BlogdescriptionPage
+    BlogdescriptionPage,
+    VerificationpagePage
   ],
   imports: [
     BrowserModule,
@@ -92,7 +94,8 @@ import { BlogdescriptionPage } from "../pages/blogdescription/blogdescription";
     ChatwithbotPage,
     ViewreminderpagePage,
     AddremiderpagePage,
-    BlogdescriptionPage
+    BlogdescriptionPage,
+    VerificationpagePage
   ],
   providers: [
     StatusBar,

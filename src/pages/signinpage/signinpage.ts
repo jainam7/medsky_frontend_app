@@ -8,7 +8,7 @@ import { Storage } from "@ionic/storage";
 import { email_class } from "../../providers/userlog/email";
 import { AboutPage } from '../about/about';
 import { ForgetpassPage } from "../forgetpass/forgetpass";
- 
+import { VerificationpagePage } from "../verificationpage/verificationpage";
 
 /**
  * Generated class for the SigninpagePage page.
@@ -28,6 +28,8 @@ export class SigninpagePage {
   usr:User_Class[];
   mailobj:email_class[]=[];
   msg:string='';
+  isverified:number;
+  token:string;
   constructor(public storage:Storage,public toast:ToastController,public navCtrl: NavController,public _db:UserlogProvider){
 
   }
@@ -53,7 +55,7 @@ export class SigninpagePage {
 
   });
   let t3=this.toast.create({
-    message:"Enter proper mail id and Password",
+    message:"Enter proper mail id and Password or You had not verified your account",
     duration:3000,
     position:"bottom"
 
@@ -79,6 +81,29 @@ export class SigninpagePage {
         }
         else{
         if(x.length==1){
+          this.isverified=x[0].usr_verify;
+          this.token=x[0].usr_token;
+          
+          console.log(this.isverified);
+          console.log(this.token);
+          
+          if(this.isverified==0)
+          {
+            
+            let t1=this.toast.create({
+              message:"You had not verified your account.Kindly enter OTP in this page.",
+              duration:5000,
+              position:"bottom"
+            });
+            t1.present();
+            console.log(this.isverified);
+            console.log(this.token);
+            this.navCtrl.push(VerificationpagePage,{
+              param1:this.email_id,
+              param2:this.password,
+              param3:this.token
+          });
+          }
          /* alert('login successfully');
           let l1=this.load.create({
             content:"Loading...",
@@ -86,14 +111,13 @@ export class SigninpagePage {
   
           });
           l1.present();*/
- 
+          else
+          {
           t1.present();
-          //l1.dismissAll();
- 
           this.storage.set('id',this.email_id);
           this.storage.set('pass',this.password);
-         
           this.navCtrl.push(TabsPage);
+          }
         }
         else{
          t3.present();

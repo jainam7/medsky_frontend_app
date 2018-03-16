@@ -56,17 +56,17 @@ temp:String;
 this._dbprescription.getWholePrescription().subscribe(
   (data:prescription3[])=>{
   
-for(let item of data)
-{
-  this.days=item.pres_day;
-  this.medicines=item.col_medids;
-  this.instr=item.pres_instr;
-  this.mornings=item.pres_morning;
-  this.noons=item.pres_noon;
-  this.nights=item.pres_night;
-  this.pres_date=item.pres_date;
-  this.doc_name=item.doc_name;
-}
+  for(let item of data)
+  {
+    this.days=item.pres_day;
+    this.medicines=item.col_medids;
+    this.instr=item.pres_instr;
+    this.mornings=item.pres_morning;
+    this.noons=item.pres_noon;
+    this.nights=item.pres_night;
+    this.pres_date=item.pres_date;
+    this.doc_name=item.doc_name;
+  }
 
 
 this.medicinenames=this.medicines.split(',');
@@ -75,8 +75,9 @@ this.ins_array=this.instr.split(',');
 this.mor_array=this.mornings.split(',');
 this.non_array=this.noons.split(',');
 this.nig_array=this.nights.split(',');
-this.initData(this.medicine_name);
-
+console.log("medicine_name"+this.medicine_name);
+//this.initData(this.medicine_name);
+this.getName(0);
  
 
 },
@@ -92,27 +93,64 @@ this.initData(this.medicine_name);
   }
 );
   }
+  getName(i:any)
+  {
+    if(i==this.medicinenames.length)
+    {
+      return 0;
+    }
+    else
+    {
+    this._dbprescription.mid=this.medicinenames[i];
+        this._dbprescription.getmedicinename().subscribe(
+          (data:any[])=>{
+            for(let item of data){
+                this.medicine_name.push(item.med_name);
+            }
+            i++;
+            this.getName(i);
+          },function(error){console.log(error)},
+          function(){
+
+          }
+        );
+      } 
+  }
   initData(items:any[])
   {
-    var i:Number;
+    /*var k=0;
+    for(var i=0,len=this.medicinenames.length;i<len;i++)
+    {
+        console.log(this.medicinenames[i]);
+        this._dbprescription.mid=this.medicinenames[i];
+        this._dbprescription.getmedicinename().subscribe(
+          (data:any[])=>{
+            for(let item of data){
+                this.medicine_name.push(item.med_name);
+                //i++;
+            }
+          },function(error){console.log(error)},
+          function(){
+
+          }
+        );    */
+    }
+   /* var i:Number;
    for(let item of this.medicinenames)
    {
     this._dbprescription.mid=item;
     i=this.medicinenames.indexOf(this._dbprescription.mid);
     this.indexing.push(i.toString());
-    
-    
       this._dbprescription. getmedicinename()
       .subscribe(
         (data:any[])=>{
-          console.log(data);
+          //console.log(data);
           for(let item of data)
           {
             this.medicine_name.push(item.med_name);
-            
             this.medicine_type.push(item.med_type);
            }
-        
+           
        }, 
      function(error){
         console.log("error"+error)
@@ -120,13 +158,12 @@ this.initData(this.medicine_name);
       function()
       {
         console.log("Success");
-       
       }
     );
-  }
- //this.sortData();
+  }*/
+
 }
-      sortData()
+      /*sortData()
       {
         var i=0;
         var j=0;
@@ -152,8 +189,8 @@ this.initData(this.medicine_name);
          
         }
       }
-
+*/
  
-}
+
 
   
