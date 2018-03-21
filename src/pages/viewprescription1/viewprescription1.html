@@ -22,25 +22,34 @@
         
         </ion-refresher-content>
           </ion-refresher>
-          
-    <ion-card>
+          <ion-list-header>
+            Select Doctor
+          </ion-list-header>        
+          <button ion-item *ngFor="let item of allpresc" (click)="onViewDoctor(item)">
+              <ion-icon name="contact" item-start></ion-icon>
+              {{item.doc_name}}
+          </button>
+            <!-- </ion-list>
+          </ion-card> -->
+    
+    
+     
+      
+    
+      </ion-content>
+    
+              
+    <!-- <ion-card>
         <ion-card-header>
          Select Your Doctor
         </ion-card-header>
       
-        <ion-list>
-      
+        <ion-list> -->
+<!--       
           <button ion-item *ngFor="let item of allpresc" (click)="onViewDoctor(item)">
             <ion-icon name="medical" item-start></ion-icon>
            {{item.doc_name}}
           </button>
       
       
-        </ion-list>
-      </ion-card>
-
-
- 
-  
-
-  </ion-content>
+         -->

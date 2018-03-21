@@ -23,7 +23,7 @@ export class Viewprescription2Page {
   }
  doc_id:string;
  uid:string="malav@gmail.com";
-
+datearray:Date;
   ionViewDidLoad() {
     console.log('ionViewDidLoad Viewprescription2Page');
     this.doc_id=this.navParams.get('param1');

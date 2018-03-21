@@ -14,16 +14,23 @@
 
 
 <ion-content padding>
-<ion-card>
-  <ion-card-header>
+    <ion-list-header>
+        Select Doctor
+      </ion-list-header>        
+      <button ion-item text-wrap class="cardclass" *ngFor="let item of allprescdate" (click)="onViewPrescription(item)">
+          <ion-icon name="document" item-start></ion-icon>
+          {{item.pres_date}}
+      </button>
+<!-- <ion-card>
+  <!-- <ion-card-header>
     Select Prescriptions
   </ion-card-header>
 <ion-list>
   <button ion-item *ngFor="let item of allprescdate" (click)="onViewPrescription(item)">
-    <ion-icon name="book" item-start></ion-icon>
+    <ion-icon name="document" item-start></ion-icon>
     &nbsp; {{item.pres_date}}
   </button>
-</ion-list>
+</ion-list> -->
 
-</ion-card>
+<!--</ion-card> -->
 </ion-content>
