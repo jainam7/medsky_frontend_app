@@ -20,7 +20,7 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-        <ion-label floating>Email Id</ion-label>
+        <ion-label floating><b>Email Id</b></ion-label>
         <ion-input type="email" [(ngModel)]="user" name="email" readonly></ion-input>
     </ion-item>
   <!--<ion-item>
@@ -28,15 +28,15 @@
         <ion-input type="password" [(ngModel)]="pass" name="pass" readonly></ion-input>
     </ion-item>-->
    <ion-item>
-        <ion-label floating>Name</ion-label>
+        <ion-label floating><b>Name</b></ion-label>
         <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label floating>Mobile No</ion-label>
+        <ion-label floating><b>Mobile No</b></ion-label>
         <ion-input type="Number" [(ngModel)]="mno" name="mno" ></ion-input>
     </ion-item>
     <br/>
-    <ion-list radio-group [(ngModel)]="gen">
+   <!-- <ion-list radio-group [(ngModel)]="gen">
       <ion-item>
         <ion-label>Male</ion-label>
         <ion-radio value="Male"></ion-radio>
@@ -45,7 +45,39 @@
         <ion-label>Female</ion-label>
         <ion-radio value="Female"></ion-radio>
       </ion-item>
-      </ion-list>    
+      </ion-list>    -->
+      <ion-item>
+        <ion-label><b>Gender</b></ion-label>
+        <ion-select [(ngModel)]="gen">
+          <ion-option value="Female">Female</ion-option>
+          <ion-option value="Male">Male</ion-option>
+        </ion-select>
+      </ion-item>
+     
+      <ion-item>
+        <ion-label><b>Blood Group</b></ion-label>
+        <ion-select [(ngModel)]="bgrp">
+          <ion-option value="O+">O+</ion-option>
+          <ion-option value="O-">O-</ion-option>
+          <ion-option value="A+">A+</ion-option>
+          <ion-option value="A-">A-</ion-option>
+          <ion-option value="B+">B+</ion-option>
+          <ion-option value="B-">B-</ion-option>
+          <ion-option value="AB+">AB+</ion-option>
+          <ion-option value="AB-">AB-</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label><b>BirthDate</b></ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY"  [(ngModel)]="mydate"></ion-datetime>
+      </ion-item>
+    
+          
+        
+    
+      
       
   
        

@@ -74,7 +74,8 @@ export class SignuppagePage {
       this.data.sendemail(new email_class(message,this.email_id,"Scala from Medsky.com")).subscribe(
         (data1:any)=>{
           console.log("mail sent");
-          this.data.addUser(new User_Class(0,this.email_id,'',this.mno,this.password,'','',0,this.token,''))
+          this.data.addUser(new User_Class(0,this.email_id,'',this.mno,this.password,'','','',null,0,this.token,''))
+         // this.data.addUser(new User_Class(0,this.email_id,'',this.mno,this.password,'','',0,this.token,''))
    .subscribe(
 
      (data:User_Class[])=>{

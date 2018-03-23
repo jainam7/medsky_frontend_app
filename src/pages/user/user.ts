@@ -26,7 +26,11 @@ export class UserPage {
   name:string='';
   mno:string;
   gen:string='';
+  bgrp:string='';
+  mydate:any;
+ 
   token:string;
+
 
   constructor(public app:App,public navCtrl: NavController,public toast:ToastController ,public navParams: NavParams,public storage:Storage,public udata:UserlogProvider) {
   }
@@ -42,6 +46,8 @@ export class UserPage {
         this.name=this.usr[0].usr_name;
         this.mno=this.usr[0].usr_mno;
         this.gen=this.usr[0].usr_gen;
+        this.bgrp=this.usr[0].blood_grp;
+       this.mydate=this.usr[0].usr_bdate;
         this.token=this.usr[0].usr_token;
       },
       function(err){},
@@ -62,8 +68,7 @@ export class UserPage {
       duration:3000,
       position:"bottom"
     });
-   
-    this.udata.updateUser(new User_Class(0,this.user,this.name,this.mno,this.pass,this.gen,"",0,this.token,"")).subscribe(
+    this.udata.updateUser(new User_Class(0,this.user,this.name,this.mno,this.pass,this.gen,"",this.bgrp,this.mydate,0,this.token,"")).subscribe(
       (data:User_Class[])=>{
        // alert("done");
        t1.present();

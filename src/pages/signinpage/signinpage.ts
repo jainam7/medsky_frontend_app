@@ -63,7 +63,7 @@ export class SigninpagePage {
   
     
 
-    this._db.Login(new User_Class(0,
+    /*this._db.Login(new User_Class(0,
       this.email_id,
       '',
       '',
@@ -72,7 +72,8 @@ export class SigninpagePage {
       '',
       0,
       '',
-      ''))
+      ''))*/
+      this._db.Login(new User_Class(0,this.email_id,'','',this.password,'','','',null,0,'',''))
     .subscribe(
       (x:User_Class[])=>{
        if(this.email_id=='' || this.password=='')
