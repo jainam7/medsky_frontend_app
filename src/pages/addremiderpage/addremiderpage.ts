@@ -25,7 +25,7 @@ import { Storage } from "@ionic/storage";
   templateUrl: 'addremiderpage.html',
 })
 export class AddremiderpagePage {
-  private addreminderformgroup:FormGroup;
+  public addreminderformgroup:FormGroup;
   public remi:reminder;  
  
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -45,40 +45,45 @@ export class AddremiderpagePage {
       });
   
   }
+  startDate=Date();
   endDate=Date();
-  medicineName:String;
-  reminderDesc:String;
-  uid:String="";
+  medicineName:string;
+  reminderDesc:string;
+  uid:string="";
  
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddremiderpagePage');
+    this.storage.get('id').then((val)=>{
+      this.uid=val;
+    });
   }
   dismissmodal()
   {
     
     this.viewCtrl.dismiss();
+    
   }
   addEvent()
   {
     
-    let startDate=new Date();
+    let startDate=new Date(this.startDate);
   let endDate=new Date(this.endDate);
-  let medicinename:string;
-  let reminderdesc:string;
-  medicinename=this.medicineName.toString();
-  reminderdesc=this.reminderDesc.toString();
+  // let medicinename:string;
+  // let reminderdesc:string;
+  // medicinename=this.medicineName.toString();
+  // reminderdesc=this.reminderDesc.toString();
   this.storage.get('id').then((val)=>{
         this.uid=val;
   });
-  this.remi=new reminder(null,this.uid,this.medicineName,this.reminderDesc,startDate.toDateString(),endDate.toDateString());
+  this.remi=new reminder(null,this.uid,this.medicineName,this.reminderDesc,startDate.toISOString(),endDate.toISOString());
   
-   this.calendar.createEvent(medicinename,"",reminderdesc,startDate,endDate).then(
+   this.calendar.createEvent(this.medicineName,"",this.reminderDesc,startDate,endDate).then(
         result=>{
        
           ///////adding to reminder table in database
           this._db.addReminder(this.remi).subscribe((data:reminder[])=>{
             
-              
+           console.log(data);
               
 },
 function(error){

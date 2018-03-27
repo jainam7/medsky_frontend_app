@@ -1,6 +1,6 @@
 import { Storage } from "@ionic/storage";
 import { Component } from '@angular/core';
-
+import { TruncateModule } from 'ng2-truncate';
 //import { ToastController, NavController } from 'ionic-angular';
 
 import { NavController,ToastController } from 'ionic-angular';
@@ -11,29 +11,37 @@ import { blog } from "./blog";
 
 import { like } from "./like";
 
+import { DatePipe } from '@angular/common';
 
 
 import { BlogdescriptionPage} from "../blogdescription/blogdescription";
+
+
 
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
 })
+
 export class AboutPage {
 
   bg: blog[];
   lk: like;
   l1: like[] = [];
+  textlimit:50;
+  truncating:true;
+
+  
   //  j: number = 0;
   public email: string;
   //like:number=0;
 
   constructor(public storage: Storage, public navCtrl: NavController, public toast: ToastController, public bgdata: BlogdbProvider, public socialsharing: SocialSharing) {
-
+   
   }
    doRefresh(refresher){
     
-     
+    
     
       this.bgdata.getAllBlogs().subscribe(
         (data:blog[])=>{
@@ -45,6 +53,11 @@ export class AboutPage {
  
    }
   ionViewDidLoad() {
+  
+  
+  
+  
+  
     this.storage.get('id').then((val) => {
       this.email = val;
 

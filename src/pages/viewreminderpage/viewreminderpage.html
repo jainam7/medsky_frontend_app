@@ -3,8 +3,57 @@
     <ion-title>My Reminders</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding class="card-background-page">
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event);">
+      <ion-refresher-content>
+      
+       
+      
+      
+      </ion-refresher-content>
+        </ion-refresher>
+         <ion-list-header>
+          Your Reminders
+        </ion-list-header>    
+        <!--    
+        <button ion-item *ngFor="let item of reminderarray" (click)="onViewDoctor(item)">
+            <ion-icon name="contact" item-start></ion-icon>
+            {{item.rem_title}}
+        </button> -->
+          <!-- </ion-list>
+        </ion-card> -->
+        <ion-list>
+          <ion-item-sliding *ngFor="let item of reminderarray">
+            <ion-item>
+              <ion-avatar item-start>
+                <ion-icon name="alarm"></ion-icon>
+              </ion-avatar> 
+              <h2> {{item.rem_title}}</h2>
+              <p>{{item.rem_desc}}</p>
+              <p> {{item.start_date | date:"MMMM d, yyyy hh:mm:ss"}}</p>
+              <p>{{item.end_date | date:"MMMM d, yyyy hh:mm:ss"}}</p>
+            </ion-item>
+            <ion-item-options side="left">
+              <button ion-button color="primary" (click)="deleterem(item)">
+                <ion-icon name="trash"></ion-icon>
+                Delete
+              </button>
+            </ion-item-options>
+            <ion-item-options side="right">
+              <button ion-button color="primary" (click)="deleterem(item)">
+                <ion-icon name="trash"></ion-icon>
+                Delete
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+  
+   
+    
+  
+    
+  
+<!-- <ion-content padding class="card-background-page">
 
     <ion-card *ngFor="let item of reminderarray">
         <ion-card-header>
@@ -24,7 +73,7 @@
        
         </ion-card-content>
       </ion-card>
-    
+     -->
  
   <ion-fab center bottom>
     <button ion-fab on-tap="addEvent()" color="myapp1"><ion-icon name="add"></ion-icon></button>

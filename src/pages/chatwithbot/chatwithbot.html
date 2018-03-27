@@ -7,12 +7,46 @@
 <ion-header>
 
   <ion-navbar color="myapp1">
-    <ion-title>Chat with Bot</ion-title>
+    <ion-title>Chat with Dr.Skala</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div *ngFor="let item of questions"  class="messages">
+    <div class="message">
+        <span>{{ item }}</span>
+      </div>
+  </div>
+  <div *ngFor="let item of answers" class="answer" >
+      <div class="answer" class="answerspan">
+          <span>{{ item }}</span>
+        </div>
+    </div>
+
+
+    <!-- <div style="position: fixed; bottom: 0px; width: 100%;">
+      <ion-footer>
+          <label class="item-input-wrapper">
+              <ion-input type="text" placeholder="Enter Your Message Here" [(ngModel)]="qtext" ></ion-input>
+          </label>
+          <button ion-button (click)="send(qtext)">
+       
+              <ion-icon ios="ios-send" md="md-send"></ion-icon>
+            </button>
+        </ion-footer>
+      </div> -->
+      <ion-footer>
+        <ion-toolbar>
+          <ion-input type="text" placeholder="Enter Your Message Here" [(ngModel)]="qtext" ></ion-input>
+          <ion-buttons end>
+            <button ion-button icon-right color="myapp1" (click)="send(qtext)">
+              Send
+              <ion-icon name="send"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-footer>
 
 </ion-content>

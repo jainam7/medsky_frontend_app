@@ -9,10 +9,14 @@ import { blog } from '../../pages/about/blog';
 */
 @Injectable()
 export class BlogdbProvider {
-  url:string = "http://localhost:3000/blog/";
-  url2:string = "http://localhost:3000/blog_likes/";
-  url3:string = "http://localhost:3000/likeEmail/";
-  blogid:Number;
+  // url:string = "http://localhost:3000/blog/";
+  // url2:string = "http://localhost:3000/blog_likes/";
+  // url3:string = "http://localhost:3000/likeEmail/";
+  url:string = "https://medsky-backend.herokuapp.com/blog/";
+  url2:string = "https://medsky-backend.herokuapp.com/blog_likes/";
+  url3:string = "https://medsky-backend.herokuapp.com/likeEmail/";
+  
+   blogid:Number;
   constructor(public http: HttpClient) {
     console.log('Hello BlogdbProvider Provider');
   }

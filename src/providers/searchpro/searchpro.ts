@@ -16,8 +16,11 @@ export class SearchproProvider {
     console.log('Hello SearchproProvider Provider');
   }
   id:any;
-  private url1="http://localhost:3000/doctor/";
-  private url2="http://localhost:3000/medicines/";
+  // private url1="http://localhost:3000/doctor/";
+  // private url2="http://localhost:3000/medicines/";
+  private url1="https://medsky-backend.herokuapp.com/doctor/";
+  private url2="https://medsky-backend.herokuapp.com/medicines/";
+ 
   getALlDoctors()
   {
     return this._http.get(this.url1).map((response:Response)=>response.json());

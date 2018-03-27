@@ -18,12 +18,18 @@ export class UserlogProvider {
   constructor(public http: Http) {
     console.log('Hello UserlogProvider Provider');
   }
-  public url_login:string="http://localhost:3000/login/";
-  public url_signup:string="http://localhost:3000/signup/";
-  public url_Byid:string="http://localhost:3000/alldata/";
-  public url_email:string="http://localhost:3000/forget/";
-  public url_chngpass:string="http://localhost:3000/change/";
-  public url_verify:string="http://localhost:3000/verify/";
+  // public url_login:string="http://localhost:3000/login/";
+  // public url_signup:string="http://localhost:3000/signup/";
+  // public url_Byid:string="http://localhost:3000/alldata/";
+  // public url_email:string="http://localhost:3000/forget/";
+  // public url_chngpass:string="http://localhost:3000/change/";
+  // public url_verify:string="http://localhost:3000/verify/";
+  public url_login:string="https://medsky-backend.herokuapp.com/login/";
+  public url_signup:string="https://medsky-backend.herokuapp.com/signup/";
+  public url_Byid:string="https://medsky-backend.herokuapp.com/alldata/";
+  public url_email:string="https://medsky-backend.herokuapp.com/forget/";
+  public url_chngpass:string="https://medsky-backend.herokuapp.com/change/";
+  public url_verify:string="https://medsky-backend.herokuapp.com/verify/";
   
   id:string='';
   usr:User_Class[]=[];

@@ -6,14 +6,102 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content fullscreen>
     <ion-refresher (ionRefresh)="doRefresh($event);">
         <ion-refresher-content>
         
         
         </ion-refresher-content>
           </ion-refresher>
-  <ion-card *ngFor="let i of bg">
+
+          <ion-card *ngFor="let i of bg" class="h12">
+
+              <!-- <ion-item>
+                <ion-avatar item-start>
+                    <ion-icon name="contact"></ion-icon>
+                </ion-avatar>
+                <h2>{{i.fk_doc_email_id}}</h2>
+                <p>{{i.blog_date}}</p>
+              </ion-item> -->
+            
+       <h1>{{i.blog_title}}</h1>       
+       Written on<p>{{i.blog_date}}</p>
+              <ion-card-content>
+<!-- 
+                  <div *ngIf="text">
+                      <div *ngIf="text.length <= limit">{{text}}</div>
+                      <div *ngIf="truncating && text.length > limit">
+                        {{i.blog_desc }}
+                        <button ion-button (click)="truncating = false">show more</button>
+                      </div>
+                      <div *ngIf="!truncating && text.length > limit">
+                        {{i.blog_desc}}
+                        <button ion-button (click)="truncating = true">show less</button>
+                      </div>
+                      </div> -->
+                     <div [innerHTML]="i.blog_desc"></div>
+                      <!-- <p>{{i.blog_desc}}</p> -->
+                  <!-- <p >{{i.blog_desc}}</p>  -->
+                      <!-- <p>
+                          {{i.blog_desc}}    
+                        </p>
+                  <!-- <p ng-text-truncate="longText" ng-tt-chars-threshold="40"> -->
+                          <!-- {{i.blog_desc}}   -->
+                  <!-- </p> -->
+                 
+                </ion-card-content>
+            
+              <ion-row>
+                <ion-col>
+                    <button color="myapp1" *ngIf="i.likes!=0" ion-button icon-left clear small (tap)="tapev(i)" style="cursor:pointer;"  >
+                        <ion-icon name="thumbs-up" ></ion-icon>
+                        <div>{{i.likes}} Likes</div>
+                      </button>
+                      <button color="myapp1" *ngIf="i.likes==0" ion-button icon-left clear small (tap)="tapev(i)" style="cursor:pointer;"  >
+                          <ion-icon name="thumbs-up" ></ion-icon>
+                          <div>{{i.likes}} Likes</div>
+                        </button>
+                </ion-col>
+                <ion-col>
+                  <button color="myapp1" ion-button icon-left clear small (click)="menu(i)" style="cursor:pointer;"  >
+                      <ion-icon name="share"></ion-icon>
+                      <div>Share</div>
+                      </button>
+                </ion-col>
+                <!-- <ion-col center text-center>
+          
+      <button ion-button icon-left clear small (tap)="onRead(i.blog_id)" style="cursor:pointer;"  >
+          <ion-icon name="text"></ion-icon>
+          <div>Read More</div>
+        </button>
+            </ion-col> -->
+              </ion-row>
+            
+            </ion-card>
+            
+
+
+<!-- 
+          <ion-content padding>
+            <ion-item *ngFor="let i of bg">
+              <h1><p>{{i.blog_title}}</p></h1>
+              <div text-wrap>
+                  <p>Description:</p>
+              <p>{{i.blog_desc}}</p>
+
+              </div>
+              
+            </ion-item> -->
+            </ion-content>
+              <!-- <button ion-item text-wrap class="cardclass" *ngFor="let i of bg" (tap)="onRead(i.blog_id)" (click)="onViewPrescription(item)">
+                  
+                  <font size="2px">Written by <ion-icon name="contact" item-start></ion-icon> {{i.fk_doc_email_id}}</font>
+
+                    <p>{{i.blog_title}}</p>
+                 
+              </button>
+            </ion-content> -->
+  <!-- <ion-card *ngFor="let i of bg">
 
   <ion-item>
     
@@ -63,4 +151,4 @@
 </ion-card>
 
 
-</ion-content>
+</ion-content> -->
