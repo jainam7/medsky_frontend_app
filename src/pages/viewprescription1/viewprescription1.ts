@@ -72,7 +72,7 @@ export class Viewprescription1Page {
   }
   
   ionViewDidLoad() {
-    this.ionViewWillEnter();
+   // this.ionViewWillEnter();
   }
   
   onViewDoctor(item:prescription)

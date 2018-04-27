@@ -18,9 +18,9 @@ export class PrescriptionProvider {
   // private url="http://localhost:3000/prescription/";
   // private url2="http://localhost:3000/prescription2/"
   // private url3="http://localhost:3000/med/"
-  private url="https://medsky-backend.herokuapp.com/prescription/";
-  private url2="https://medsky-backend.herokuapp.com/prescription2/";
-  private url3="https://medsky-backend.herokuapp.com/med/";
+   private url="https://medsky-backend.herokuapp.com/prescription/";
+   private url2="https://medsky-backend.herokuapp.com/prescription2/";
+   private url3="https://medsky-backend.herokuapp.com/med/";
  
   uid:String="";
   did:String="";

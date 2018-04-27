@@ -42,7 +42,7 @@ temp:String;
 
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
    
     this.pk_pres_id=this.navParams.get('param1');
    

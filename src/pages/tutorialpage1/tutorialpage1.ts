@@ -33,5 +33,9 @@ export class Tutorialpage1Page {
   onTutorialNext(){
     this.navCtrl.push(SigninpagePage);
   }
+  startApp()
+  {
+    
+  }
 
 }
