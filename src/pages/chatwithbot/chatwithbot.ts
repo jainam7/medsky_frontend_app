@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiAiClient } from "api-ai-javascript";
+
+import { mes } from "./classmessage";
+
 /**
  * Generated class for the ChatwithbotPage page.
  *
@@ -20,11 +23,13 @@ export class ChatwithbotPage {
     const promise= client.textRequest('Hello!');
      promise.then((response) => {console.log("Response: ",response);})
      .catch((error) => {console.log("Error", error);});
-    this.answers=[];
+   // this.answers=[];
   }
 
-  questions=[];
-  answers=[];
+ // questions=[];
+ // answers=[];
+  messages:mes[]=[];
+  temp:mes;
   qtext:String;
 
   
@@ -32,8 +37,10 @@ export class ChatwithbotPage {
   {
     if(msg!="")
     {
-      this.questions.push(msg);
+     // this.questions.push(msg);
+      this.temp=new mes(msg,"user");
       this.qtext=null;
+      this.messages.push(this.temp);
 //  sending message to bot
 
 const client = new ApiAiClient({accessToken:'4596e9d3a1b641db86d96a0ae86e165f'});
@@ -41,7 +48,10 @@ const promise= client.textRequest(msg);
 promise.then(
   res=>{
     const speech=res.result.fulfillment.speech;
-    this.answers.push(speech);
+    //this.answers.push(speech);
+    this.temp=new mes(speech,"bot");
+    this.messages.push(this.temp);
+
   }
 ).catch((error)=>{console.log(error);});
 

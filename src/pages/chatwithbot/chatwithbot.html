@@ -14,30 +14,22 @@
 
 
 <ion-content padding>
-  <div *ngFor="let item of questions"  class="messages">
-    <div class="message">
-        <span>{{ item }}</span>
-      </div>
-  </div>
-  <div *ngFor="let item of answers" class="answer" >
-      <div class="answer" class="answerspan">
-          <span>{{ item }}</span>
+    <ng-container *ngFor="let message of messages">
+
+        <div class="message" [ngClass]="{ 'from': message.from === 'user',
+                                          'to':   message.to === 'bot' }">
+          {{ message.content }}
         </div>
-    </div>
+      
+      </ng-container>
+  <!-- <div class="message" [ngClass]="{'from': isuser==='true',
+                                    'to':isuser==='false'}">
+  <div *ngFor="let item of messages">
+        {{ item }}
+  </div>
+    </div> -->
 
-
-    <!-- <div style="position: fixed; bottom: 0px; width: 100%;">
-      <ion-footer>
-          <label class="item-input-wrapper">
-              <ion-input type="text" placeholder="Enter Your Message Here" [(ngModel)]="qtext" ></ion-input>
-          </label>
-          <button ion-button (click)="send(qtext)">
-       
-              <ion-icon ios="ios-send" md="md-send"></ion-icon>
-            </button>
-        </ion-footer>
-      </div> -->
-      <ion-footer>
+       <ion-footer>
         <ion-toolbar>
           <ion-input type="text" placeholder="Enter Your Message Here" [(ngModel)]="qtext" ></ion-input>
           <ion-buttons end>

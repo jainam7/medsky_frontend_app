@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams,LoadingController,Content } from 'ionic-angular';
 import { medicine } from "../searchdocandmed1/classmedicines";
 import { SearchproProvider } from "../../providers/searchpro/searchpro"
 import { medicinedetails } from "./classmedicine";
+
 /**
  * Generated class for the Searchmedpage1Page page.
  *
@@ -16,7 +17,8 @@ import { medicinedetails } from "./classmedicine";
   templateUrl: 'searchmedpage1.html',
 })
 export class Searchmedpage1Page {
-
+ 
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,public _db:SearchproProvider,public loadingcontroller:LoadingController) {
   }
   medi:String="Basic Details";
@@ -45,10 +47,10 @@ export class Searchmedpage1Page {
         function(){
           console.log("success");
           loadingdata.dismiss();
+          
         }
       
     );
-    
   }
 
 }

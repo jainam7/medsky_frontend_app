@@ -124,7 +124,7 @@ export class AboutPage {
     );
   }
   menu(item) {
-    this.socialsharing.share("general message", null/*subject*/, null/*file*/, "url");
+    this.socialsharing.share(item.blog_desc,item.blog_title,null,"www.google.com");
     let t1 = this.toast.create({
       message: ' Shared !!!',
       duration: 1500,
