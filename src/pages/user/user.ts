@@ -82,13 +82,14 @@ export class UserPage {
   logoutuser()
   {
     
+
     localStorage.clear();
     localStorage.removeItem('id');
     localStorage.removeItem('pass');
-    localStorage.clear();
-    const root=this.app.getRootNav();
-    root.popToRoot();
-   // this.navCtrl.push(SigninpagePage);
+
+    //const root=this.app.getRootNav();
+    //root.popToRoot();
+   //this.navCtrl.push(SigninpagePage);
     //this.navCtrl.push(SigninpagePage); 
   }
 
