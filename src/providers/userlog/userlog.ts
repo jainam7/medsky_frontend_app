@@ -19,9 +19,9 @@ export class UserlogProvider {
     console.log('Hello UserlogProvider Provider');
   }
   //  public url_login:string="http://localhost:3000/login/";
-  //  public url_signup:string="http://localhost:3000/signup/";
+  //public url_signup:string="http://localhost:3000/signup/";
   //  public url_Byid:string="http://localhost:3000/alldata/";
-  //  public url_email:string="http://localhost:3000/forget/";
+    //public url_email:string="http://localhost:3000/forget/";
   //  public url_chngpass:string="http://localhost:3000/change/";
   //  public url_verify:string="http://localhost:3000/verify/";
   public url_login:string="https://medsky-backend.herokuapp.com/login/";

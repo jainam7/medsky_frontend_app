@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController,ToastController} from 'ionic-angular';
+import { IonicPage, NavController,ToastController, DateTime} from 'ionic-angular';
 import { UserlogProvider } from "../../providers/userlog/userlog";
 import { User_Class } from "../../providers/userlog/user_class";
 import { TabsPage } from "../tabs/tabs";
@@ -74,19 +74,20 @@ export class SignuppagePage {
       this.data.sendemail(new email_class(message,this.email_id,"Scala from Medsky.com")).subscribe(
         (data1:any)=>{
           console.log("mail sent");
-          this.data.addUser(new User_Class(0,this.email_id,'',this.mno,this.password,'','','',null,0,this.token,''))
-         // this.data.addUser(new User_Class(0,this.email_id,'',this.mno,this.password,'','',0,this.token,''))
-   .subscribe(
-
-     (data:User_Class[])=>{
+          this.data.addUser(new User_Class(0,this.email_id,'',this.mno,this.password,'','','',null,0,this.token,'User'))
+          // this.data.addUser(new User_Class(0,this.email_id,'',this.mno,this.password,'','',0,this.token,''))
+    .subscribe(
+    
+      (data:User_Class[])=>{
+      },
+      function(error){
+       console.log(error);
      },
-     function(error){
-      console.log(error);
-    },
-    function(){
-     
-    }
-   );
+     function(){
+      
+     }
+    );
+    
           //alert("The Password has been sent to "+this.email_id);
        
           t1.present();
