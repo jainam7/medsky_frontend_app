@@ -31,9 +31,10 @@ export class PrescriptionProvider {
 
   constructor(public _http:Http,public storage:Storage) {
     console.log('Hello PrescriptionProvider Provider');
-    this.storage.get('id').then((val)=>{
-          this.uid=val;      
-      });
+    this.uid=localStorage.getItem('id');
+    // this.storage.get('id').then((val)=>{
+    //       this.uid=val;      
+    //   });
   }
  // private presc:prescription[]=[];
   

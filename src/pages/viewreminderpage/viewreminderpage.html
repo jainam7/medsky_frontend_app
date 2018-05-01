@@ -30,8 +30,8 @@
               </ion-avatar> 
               <h2> {{item.rem_title}}</h2>
               <p>{{item.rem_desc}}</p>
-              <p> {{item.start_date | date:"MMMM d, yyyy hh:mm:ss"}}</p>
-              <p>{{item.end_date | date:"MMMM d, yyyy hh:mm:ss"}}</p>
+              <p> {{item.start_date | date:"MMMM d, yyyy hh:mm:ss a"}}</p>
+              <p>{{item.end_date | date:"MMMM d, yyyy hh:mm:ss a"}}</p>
             </ion-item>
             <ion-item-options side="left">
               <button ion-button color="primary" (click)="deleterem(item)">

@@ -56,10 +56,10 @@ export class AboutPage {
   
   
   
+  this.email=localStorage.getItem('id');
   
-  
-    this.storage.get('id').then((val) => {
-      this.email = val;
+    // this.storage.get('id').then((val) => {
+    //     this.email = val;
 
     let t1=this.toast.create({
       message:"Pull Down to Refresh Content",
@@ -91,7 +91,7 @@ export class AboutPage {
       }
     );
     t1.present();
-    });
+
   }
   tapev(e) {
     this.bgdata.getLikeEmail(e.fk_blog_id, this.email).subscribe(

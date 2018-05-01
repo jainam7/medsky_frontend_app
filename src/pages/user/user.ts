@@ -37,8 +37,9 @@ export class UserPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserPage');
-    this.storage.get('id').then((val)=>{
-    this.user=val;
+    this.user=localStorage.getItem('id');
+    //this.storage.get('id').then((val)=>{
+    //this.user=val;
     this.udata.getUserid(this.user).subscribe(
       (data:User_Class[])=>{
         this.usr=data;
@@ -53,7 +54,7 @@ export class UserPage {
       function(err){},
       function(){}
     );
-    });       
+    
    
 
   }
@@ -81,12 +82,13 @@ export class UserPage {
   logoutuser()
   {
     
-    //localStorage.clear();
-    //localStorage.removeItem('email');
-    //localStorage.removeItem('pass');
-    //this.navCtrl.push(SigninpagePage);
-    const root=this.app.getRootNav();
-    root.popToRoot();
+
+    localStorage.clear();
+    localStorage.removeItem('id');
+    localStorage.removeItem('pass');
+
+    //const root=this.app.getRootNav();
+    //root.popToRoot();
    //this.navCtrl.push(SigninpagePage);
     //this.navCtrl.push(SigninpagePage); 
   }

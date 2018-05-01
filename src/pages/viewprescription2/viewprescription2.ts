@@ -22,7 +22,10 @@ export class Viewprescription2Page {
 
   }
  doc_id:string;
- uid:string="malav@gmail.com";
+ 
+ //uid:string="malav@gmail.com";
+//  uid:string;
+//  this.uid=localStorage.getItem('id');
 datearray:Date;
   ionViewDidLoad() {
     console.log('ionViewDidLoad Viewprescription2Page');

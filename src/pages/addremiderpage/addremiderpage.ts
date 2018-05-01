@@ -53,9 +53,10 @@ export class AddremiderpagePage {
  
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddremiderpagePage');
-    this.storage.get('id').then((val)=>{
-      this.uid=val;
-    });
+    this.uid=localStorage.getItem('id');
+    // this.storage.get('id').then((val)=>{
+    //   this.uid=val;
+    // });
   }
   dismissmodal()
   {
