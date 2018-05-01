@@ -86,9 +86,8 @@ export class UserPage {
     localStorage.clear();
     localStorage.removeItem('id');
     localStorage.removeItem('pass');
-
-    //const root=this.app.getRootNav();
-    //root.popToRoot();
+    const root=this.app.getRootNav();
+    root.popToRoot();
    //this.navCtrl.push(SigninpagePage);
     //this.navCtrl.push(SigninpagePage); 
   }
