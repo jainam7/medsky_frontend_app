@@ -115,8 +115,10 @@ export class SigninpagePage {
           else
           {
           t1.present();
-          this.storage.set('id',this.email_id);
-          this.storage.set('pass',this.password);
+          // this.storage.set('id',this.email_id);
+          // this.storage.set('pass',this.password);
+          localStorage.setItem('id',this.email_id);
+          localStorage.setItem('pass',this.password);
           this.navCtrl.push(TabsPage);
           }
         }

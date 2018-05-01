@@ -25,9 +25,10 @@ export class ReminderproviderProvider {
               public storage:Storage
   ) {
     console.log('Hello ReminderproviderProvider Provider');
-    this.storage.get('id').then((val)=>{
-      this.uid=val;
-    });
+    this.uid=localStorage.getItem('id');
+    // this.storage.get('id').then((val)=>{
+    //   this.uid=val;
+    // });
     
   }
 

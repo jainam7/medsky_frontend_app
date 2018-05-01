@@ -29,9 +29,10 @@ export class ChangepassPage {
   u:string='';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public storage:Storage,public _db:UserlogProvider,public toast:ToastController) {
-    this.storage.get('id').then((val)=>{
-      this.email_id=val;  
-    }); 
+    this.email_id=localStorage.getItem('id');
+    // this.storage.get('id').then((val)=>{
+    //   this.email_id=val;  
+    // }); 
   }
 
   ionViewDidLoad() {
@@ -41,10 +42,10 @@ export class ChangepassPage {
   onChangePassClick()
   {
    
-  
-    this.storage.get('pass').then((val)=>{
-      this.pass=val;  
-    }); 
+    this.pass=localStorage.getItem('pass');
+    // this.storage.get('pass').then((val)=>{
+    //   this.pass=val;  
+    // }); 
     if(this.npass==this.cpass)
     {
       if(this.npass==this.cpass)
