@@ -15,6 +15,7 @@ export class ViewreminderpagePage {
   reminderarray:reminder[]=[];
   temp1:string;
   temp2:string;
+  uid:string='';
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private calendar:Calendar,
     private plt:Platform,
@@ -26,13 +27,14 @@ export class ViewreminderpagePage {
   endDate=Date();
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewreminderpagePage');
+    this.uid=localStorage.getItem('id');
     let t1=this.toast.create({
       message:"Pull Down to Refresh Content",
       duration:5000,
       position:"bottom"
     });
     t1.present();
-    this._db.getReminders().subscribe((data:reminder[])=>{
+    this._db.getReminders(this.uid).subscribe((data:reminder[])=>{
       this.reminderarray=data;
       console.log(data);
    },
@@ -48,7 +50,7 @@ export class ViewreminderpagePage {
   
   doRefresh(refresher){
    
-    this._db.getReminders().subscribe((data:reminder[])=>{
+    this._db.getReminders(this.uid).subscribe((data:reminder[])=>{
       this.reminderarray=data;
       console.log(data);
    },
