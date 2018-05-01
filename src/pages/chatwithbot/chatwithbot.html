@@ -28,9 +28,10 @@
         {{ item }}
   </div>
     </div> -->
+    </ion-content>
 
        <ion-footer>
-        <ion-toolbar>
+        <ion-toolbar position="bottom">
           <ion-input type="text" placeholder="Enter Your Message Here" [(ngModel)]="qtext" ></ion-input>
           <ion-buttons end>
             <button ion-button icon-right color="myapp1" (click)="send(qtext)">
@@ -41,4 +42,5 @@
         </ion-toolbar>
       </ion-footer>
 
-</ion-content>
+
+      

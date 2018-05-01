@@ -81,10 +81,13 @@ export class UserPage {
   logoutuser()
   {
     
-    
+    //localStorage.clear();
+    //localStorage.removeItem('email');
+    //localStorage.removeItem('pass');
+    //this.navCtrl.push(SigninpagePage);
     const root=this.app.getRootNav();
     root.popToRoot();
-   // this.navCtrl.push(SigninpagePage);
+   //this.navCtrl.push(SigninpagePage);
     //this.navCtrl.push(SigninpagePage); 
   }
 
