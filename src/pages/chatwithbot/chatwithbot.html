@@ -16,8 +16,8 @@
 <ion-content padding>
     <ng-container *ngFor="let message of messages">
 
-        <div class="message" [ngClass]="{ 'from': message.from === 'user',
-                                          'to':   message.to === 'bot' }">
+        <div class="message" [ngClass]="{ 'from': message.from === 'bot',
+                                          'to':   message.to === 'user' }">
           {{ message.content }}
         </div>
       
@@ -28,7 +28,7 @@
         {{ item }}
   </div>
     </div> -->
-    </ion-content>
+    </ion-content> 
 
        <ion-footer>
         <ion-toolbar position="bottom">
@@ -42,8 +42,5 @@
         </ion-toolbar>
       </ion-footer>
 
-<<<<<<< HEAD
-=======
 
       
->>>>>>> f9dcdb321ef7ee4dddb32cc8e4928c27f7a159d7

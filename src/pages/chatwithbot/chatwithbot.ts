@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiAiClient } from "api-ai-javascript";
 
 import { mes } from "./classmessage";
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the ChatwithbotPage page.
@@ -28,6 +29,7 @@ export class ChatwithbotPage {
 
  // questions=[];
  // answers=[];
+ //messages:Observable<mes[]>;
   messages:mes[]=[];
   temp:mes;
   qtext:String;
